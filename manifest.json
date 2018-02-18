@@ -1,7 +1,7 @@
 {
 "manifest_version": 2,
     "name": "Blood Money",
-    "description": "Introducing, the puppets of the N.R.A. This extension replaces images of mass shooters with one of the 20 top career recipients of N.R.A. funding.",
+    "description": "The puppets of the NRA. This extension replaces images of mass shooters with one of the 20 top career recipients of NRA funding.",
     "icons": { "16": "icon16.png",
                "48": "icon48.png",
               "128": "icon128.png" },
