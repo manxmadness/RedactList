@@ -1,5 +1,5 @@
 var elements = document.getElementsByTagName('*');
-var names = /Omar Mir Seddique|Joseph Whitman|Patrick Henry Sherrill|James Huberty|Nikolas Cruz|Stephen Paddock|Omar Mateen|Seung-Hui Cho|Adam Lanza|Devin Patrick Kelley|George Hennard|Tashfeen Mali|Syed Rizwan Farook|Eric Harris|Dylan Klebold|Jiverly Antares Wong|Jiverly Wong|Jiverly Voong|Robert Lewis Dear, Jr|Ivan Lopez|Gavin Eugene Long|Micah Xavier Johnson|Nidal Hasan|Nidal Malik Hasan|James Hodgkinson|Jared Lee Loughner|Michael Kenneth McLendon|James Edward "Pop" Pough|James Edward Pough|Aaron Alexis|Jeffrey Weise|Chris Harper-Mercer|James Eagan Holmes|James Holmes|Dylann Roof|Dylann Storm Roof/g
+var names = /Omar Mir Seddique|Joseph Whitman|Patrick Henry Sherrill|James Huberty|Nikolas Cruz|Nikolas Kruz|Stephen Paddock|Omar Mateen|Seung-Hui Cho|Adam Lanza|Devin Patrick Kelley|George Hennard|Tashfeen Mali|Syed Rizwan Farook|Eric Harris|Dylan Klebold|Jiverly Antares Wong|Jiverly Wong|Jiverly Voong|Robert Lewis Dear, Jr|Ivan Lopez|Gavin Eugene Long|Micah Xavier Johnson|Nidal Hasan|Nidal Malik Hasan|James Hodgkinson|Jared Lee Loughner|Michael Kenneth McLendon|James Edward "Pop" Pough|James Edward Pough|Aaron Alexis|Jeffrey Weise|Chris Harper-Mercer|James Eagan Holmes|James Holmes|Dylann Roof|Dylann Storm Roof/g
 var namesArray = names.toString().toLowerCase().split("/g")[0].split("/")[1].split("|")
 // var blacklist = ["james holmes", "holmes", "eagan"];
 var thePoliticians = [
@@ -90,16 +90,11 @@ function redactnow(){
 
 						};
 					};
-
-
-					// var randk = Math.floor(Math.random() * 32) + 1
 					var random =  thePoliticians[Math.floor(Math.random()*thePoliticians.length)];
-					// console.log(random)
-					img.src = chrome.runtime.getURL(random);
-					img.width = imgwidth;
+          img.width = imgwidth;
 					img.height = imgheight;
-
-					// makaReplacements++;
+          img.style = "left:0;right:0;margin:auto;object-fit: contain;"
+					img.src = chrome.runtime.getURL(random);
 				};
 			});
 		};
