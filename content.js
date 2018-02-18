@@ -1,7 +1,28 @@
 var elements = document.getElementsByTagName('*');
-var names = /Joseph Whitman|Patrick Henry Sherrill|James Huberty|Nikolas Cruz|Stephen Paddock|Omar Mateen|Seung-Hui Cho|Adam Lanza|Devin Patrick Kelley|George Hennard|Tashfeen Mali|Syed Rizwan Farook|Eric Harris|Dylan Klebold|Jiverly Antares Wong|Jiverly Wong|Jiverly Voong|Robert Lewis Dear, Jr|Ivan Lopez|Gavin Eugene Long|Micah Xavier Johnson|Nidal Hasan|Nidal Malik Hasan|James Hodgkinson|Jared Lee Loughner|Michael Kenneth McLendon|James Edward "Pop" Pough|James Edward Pough|Aaron Alexis|Jeffrey Weise|Chris Harper-Mercer|James Eagan Holmes|James Holmes|Dylann Roof|Dylann Storm Roof/g
+var names = /Omar Mir Seddique|Joseph Whitman|Patrick Henry Sherrill|James Huberty|Nikolas Cruz|Stephen Paddock|Omar Mateen|Seung-Hui Cho|Adam Lanza|Devin Patrick Kelley|George Hennard|Tashfeen Mali|Syed Rizwan Farook|Eric Harris|Dylan Klebold|Jiverly Antares Wong|Jiverly Wong|Jiverly Voong|Robert Lewis Dear, Jr|Ivan Lopez|Gavin Eugene Long|Micah Xavier Johnson|Nidal Hasan|Nidal Malik Hasan|James Hodgkinson|Jared Lee Loughner|Michael Kenneth McLendon|James Edward "Pop" Pough|James Edward Pough|Aaron Alexis|Jeffrey Weise|Chris Harper-Mercer|James Eagan Holmes|James Holmes|Dylann Roof|Dylann Storm Roof/g
 var namesArray = names.toString().toLowerCase().split("/g")[0].split("/")[1].split("|")
-var blacklist = ["james holmes", "holmes", "eagan"];
+// var blacklist = ["james holmes", "holmes", "eagan"];
+var thePoliticians = [
+  "Blunt.png",
+	"Buck.png",
+	"Burr.png",
+	"Cassidy.png",
+	"Comstock.png",
+	"Ernst.png",
+	"Gianforte.png",
+	"Hill.png",
+	"McCain.png",
+	"Poliquin.png",
+	"Portman.png",
+	"Rubio.png",
+	"Sessions.png",
+	"Simpson.png",
+	"Smucker.png",
+	"Tillis.png",
+	"Young.png",
+	"Young2.png",
+	"Young3.png"
+    ]
 function redactnow(){
 	// called on page load. Searches all img alt text and srcs for the strings in blacklist, replaces with kittens
 	var pagepics=document.getElementsByTagName("img"), i=0, img;
@@ -25,7 +46,7 @@ function redactnow(){
 				var parenttag = '';
 			};
 
-			var imgwidth = img.clientWidth;
+			var imgwidth = img.clientHeight;
 			var imgheight = img.clientHeight;
 
 			namesArray.forEach(function(blist) {
@@ -71,8 +92,10 @@ function redactnow(){
 					};
 
 
-					var randk = Math.floor(Math.random() * 32) + 1
-					img.src = chrome.runtime.getURL('icon48.png');
+					// var randk = Math.floor(Math.random() * 32) + 1
+					var random =  thePoliticians[Math.floor(Math.random()*thePoliticians.length)];
+					// console.log(random)
+					img.src = chrome.runtime.getURL(random);
 					img.width = imgwidth;
 					img.height = imgheight;
 
@@ -110,7 +133,7 @@ for (var i = 0; i < elements.length; i++) {
             // console.log(imgObj)
             if (replacedText !== text) {
                 redactnow();
-                element.replaceChild(document.createTextNode(replacedText), node);
+                // element.replaceChild(document.createTextNode(replacedText), node);
             }
         }
     }
